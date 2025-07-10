@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction</title>
+    <!-- Optional: Bootstrap for styling -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+    <h1 class="mb-4 text-center">Forest Fire Weather Index (FWI) Prediction</h1>
+
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <div class="form-group">
+            <input type="text" name="Temperature" class="form-control" placeholder="Temperature" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="RH" class="form-control" placeholder="RH" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="Ws" class="form-control" placeholder="Ws" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="Rain" class="form-control" placeholder="Rain" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="FFMC" class="form-control" placeholder="FFMC" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="DMC" class="form-control" placeholder="DMC" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="ISI" class="form-control" placeholder="ISI" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="Classes" class="form-control" placeholder="Classes" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="Region" class="form-control" placeholder="Region" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    {% if result %}
+        <h2 class="mt-4 text-center">THE FWI prediction is {{ result }}</h2>
+    {% endif %}
+
+</body>
+</html>
